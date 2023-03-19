@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <title>
+            Add Cart
+        </title>
+        <script src="https://kit.fontawesome.com/76a388af8b.js" crossorigin="anonymous"></script>
+        
+        </head>
+    <style>
+
+*{
+    padding: 0;
+    margin: 0;
+    color: #454545;
+}
+h1{
+    width: 3%;
+    position: relative;
+    top: 60px;
+    left: 90%;
+    cursor: pointer;
+}
+
+h1:before{
+    content: attr(data-count);
+    position: absolute;
+    color: white;
+    right: 16px;
+    font-size: 15px;
+    text-align: center;
+    top: -16px;
+    width: 20px;
+    height: 20px;
+    background: rgb(95, 63, 198);
+    border-radius: 50%;
+    opacity: 0;
+}
+h1.zero:before{
+    opacity: 1;
+}
+section{
+    width: 90%;
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+    margin: 100px auto;
+}
+.select.display{
+    top: 10px;
+}
+section div{
+    width: 22%;
+    height: 93%;
+    background: #f5f5f5;
+    padding: 1%;
+    position: relative;
+}
+img{
+    width: 250px;
+    height: 186px;
+    
+}
+p{
+    margin: 5px;
+}
+h6{
+    width: 60px;
+    padding: 5px;
+    margin: 10px;
+    margin-left:20px ;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+button{
+    padding: 5px;
+    background: rgb(75, 75, 213);
+    border:none;
+    outline: none;
+    font-weight: bold;
+    color: #fafafa;
+    cursor: pointer;
+    margin-left: 80px;
+    font-weight: bold;
+}
+section div span{
+    position: absolute;
+    top: 14px;
+    left: 13px;
+    background: red;
+    width: 300px;
+    height: 186px;
+    display: none;
+}
+section div span img{
+    width: 100%;
+    height: 100%;
+
+}
+.select{
+    width: 60%;
+    height: 580px;
+    background: #222;
+    position: absolute;
+    top: 600px;
+    left: 20%;
+    overflow-y: auto;
+    margin: auto;
+}
+.select div{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    padding: 5px;
+    border: 1px solid white;
+    position: relative;
+    margin: 5px auto;
+}
+.select div img{
+    width: 300px;
+    height: 100%;
+
+}
+.select div p{
+    padding: 35px;
+    color: white;
+}
+.select div h6,
+.select div button{
+    position: absolute;
+    left: 45%;
+    top: 75%;
+    color: white;
+    font-size: large;
+}
+.select div button{
+        left: 60%;
+        top: 80%;
+
+}
+.select div span{
+    display: none;
+
+}
+.select div h5{
+  left: 50%;
+  top: 60%;
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+    </style>
+
+    <body>
+        <h1><i class="fa-solid fa-cart-shopping"></i></h1>
+        <section>
+            <div>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLY_EV9R41Cit_VOkZF7Ssj3w8hhlPirwEpw&usqp=CAU" class="card-img-top">
+              <h5>HTML</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet deserunt impedit voluptatum dolor cumque nesciunt autem! Vitae magnam nulla inventore.</p>
+                <h6>$ 84.25</h6>
+                <span></span>
+                <button>Add-cart</button>
+            </div>
+            <div>
+              <img src="https://www.shutterstock.com/image-illustration/css-code-on-dark-background-260nw-1893752428.jpg" class="card-img-top">
+              <h5>CSS</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet deserunt impedit voluptatum dolor cumque nesciunt autem! Vitae magnam nulla inventore.</p>
+                <h6>$105.40</h6>
+                <span></span>
+                <button>Add-cart</button>
+            </div>
+            <div>
+              <img src="https://4.bp.blogspot.com/-s2EhTt57oeU/XHtQtO1QNLI/AAAAAAAANW8/KYkPQEZUyocSpA2RzqCcVt31imXPi63RACLcBGAs/s1600/Free%2BCourses%2Bto%2Blearn%2BJavaScript.jpg" class="card-img-top">
+              <h5>JAVA SCRIPT</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet deserunt impedit voluptatum dolor cumque nesciunt autem! Vitae magnam nulla inventore.</p>
+                <h6>$ 125.85</h6>
+                <span></span>
+                <button>Add-cart</button>
+            </div>
+            <div>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxQvo7DiCYq0KDfGNiQFlNiaozrX5Ze03TbQ&usqp=CAU" class="card-img-top">
+              <h5>BOOTSTRAP</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet deserunt impedit voluptatum dolor cumque nesciunt autem! Vitae magnam nulla inventore.</p>
+                <h6>$105.40</h6>
+                <span></span>
+                <button>Add-cart</button>
+            </div>
+
+        </section>
+        <div class="select">
+
+        </div>
+
+
+        <script>
+            var noti=document.querySelector("h1")
+            var select=document.querySelector('.select')
+            var button=document.getElementsByTagName('button')
+
+            for(let but of button){
+                but.addEventListener('click',(e)=>{
+                    var add=Number(noti.getAttribute('data-count')||0)
+                    noti.setAttribute('data-count',add+1)
+                    noti.classList.add('zero')
+
+
+                    var parent=e.target.parentNode
+                    var clone=parent.cloneNode(true)
+                    select.appendChild(clone)
+                    clone.lastElementChild.innerText="Buy-now"
+                    if(clone){
+                        noti.onclick =()=>{
+                            select.classList.toggle('display')
+                        }
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>
